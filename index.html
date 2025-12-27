@@ -1,225 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Happy 21st Birthday Amar 🎉</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 21st Birthday Amar 🎉</title>
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: "Segoe UI", Tahoma, sans-serif;
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #e3f2fd, #e8f5e9);
+      color: #1e3a5f;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 15px;
+      z-index: 1000;
+    }
+
+    .nav-item {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    .nav-item:hover {
+      color: #ffd700;
+    }
+
+    header {
+      padding: 120px 20px 60px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #0d47a1;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    /* PROFILE IMAGE */
+    .profile img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 6px solid #ffffff;
+      object-fit: cover;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+      margin: 25px auto;
+      display: block;
+    }
+
+    section {
+      padding: 50px 20px;
+    }
+
+    .card {
+      max-width: 900px;
+      margin: 25px auto;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(30, 58, 95, 0.25);
+    }
+
+    /* FOOTBALL GAME */
+    #footballGame {
+      position: relative;
+      width: 300px;
+      height: 400px;
+      margin: 20px auto;
+      background: linear-gradient(#4caf50, #2e7d32);
+      border-radius: 15px;
+      overflow: hidden;
+      touch-action: manipulation;
+    }
+
+    .goal {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 260px;
+      height: 120px;
+      border: 4px solid white;
+    }
+
+    .goalkeeper {
+      position: absolute;
+      top: 90px;
+      left: 120px;
+      font-size: 35px;
+      transition: left 0.3s;
+    }
+
+    .ball {
+      position: absolute;
+      bottom: 20px;
+      left: 130px;
+      font-size: 40px;
+      cursor: pointer;
+    }
+
+    footer {
+      padding: 30px;
+      background: #0d47a1;
+      color: #fff;
+    }
+
+    /* CONFETTI */
+    .confetti {
+      position: fixed;
+      top: -10px;
+      width: 10px;
+      height: 10px;
+      background: red;
+      animation: fall 5s linear infinite;
+      opacity: 0.8;
+      z-index: 2000;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
       }
+    }
+  </style>
+</head>
 
-      body {
-        background: linear-gradient(135deg, #e3f2fd, #e8f5e9);
-        color: #1e3a5f;
-        text-align: center;
-        overflow-x: hidden;
-      }
+<body>
 
-      header {
-        padding: 60px 20px;
-      }
+  <!-- MUSIC -->
+  <audio autoplay loop>
+    <source src="happy-birthday.mp3" type="audio/mpeg" />
+  </audio>
 
-      header h1 {
-        font-size: 3rem;
-        color: #0d47a1;
-      }
+  <!-- NAV -->
+  <nav>
+    <a href="#home" class="nav-item">🏠 Home</a>
+    <a href="#celebration" class="nav-item">🎂 Celebration</a>
+    <a href="#wishes" class="nav-item">🎁 Wishes</a>
+    <a href="#future" class="nav-item">🩺 Doctor Future</a>
+  </nav>
 
-      header p {
-        font-size: 1.2rem;
-      }
+  <!-- HEADER -->
+  <header id="home">
+    <h1>🎂 Happy 21st Birthday 🎂</h1>
+    <h1>Dr. Amar Durgannav</h1>
+    <p>MBBS | 2nd Year | 28 December 2025</p>
 
-      nav {
-        position: fixed;
-        top: 0;
-        width: 100%;
-        background: rgba(0, 0, 0, 0.6);
-        padding: 15px;
-        z-index: 1000;
-      }
+    <div class="profile">
+      <img src="amar.jpg" alt="Amar Durgannav" />
+    </div>
 
-      .nav-item {
-        color: #fff;
-        margin: 0 15px;
-        text-decoration: none;
-        font-size: 1.1rem;
-      }
+    <!-- GAME -->
+    <div class="card">
+      <h2>⚽ Penalty Shootout Game</h2>
+      <p>Tap the ball and score 5 goals to unlock your gift 🎁</p>
 
-      .nav-item:hover {
-        color: #ffd700;
-      }
-
-      .profile img {
-        width: 200px;
-        height: 200px;
-        border-radius: 50%;
-        border: 5px solid #fff;
-        object-fit: cover;
-        margin-top: 20px;
-      }
-
-      section {
-        padding: 50px 20px;
-      }
-
-      .card {
-        max-width: 900px;
-        margin: 20px auto;
-        background: rgba(255, 255, 255, 0.9);
-        padding: 30px;
-        border-radius: 18px;
-        box-shadow: 0 10px 25px rgba(30, 58, 95, 0.25);
-      }
-
-      /* FOOTBALL GAME */
-      #footballGame {
-        position: relative;
-        width: 300px;
-        height: 400px;
-        margin: 0 auto;
-        background: linear-gradient(#4caf50, #2e7d32);
-        border-radius: 15px;
-        overflow: hidden;
-        touch-action: none;
-      }
-
-      .goal {
-        position: absolute;
-        top: 20px;
-        left: 20px;
-        width: 260px;
-        height: 120px;
-        border: 4px solid white;
-      }
-
-      .goalkeeper {
-        position: absolute;
-        top: 90px;
-        left: 120px;
-        font-size: 35px;
-      }
-
-      .ball {
-        position: absolute;
-        bottom: 20px;
-        left: 130px;
-        font-size: 35px;
-        cursor: pointer;
-      }
-
-      footer {
-        padding: 30px;
-        background: #0d47a1;
-        color: #fff;
-      }
-    </style>
-  </head>
-
-  <body>
-    <!-- Music -->
-    <audio autoplay loop>
-      <source src="happy-birthday.mp3" type="audio/mpeg" />
-    </audio>
-
-    <!-- Nav -->
-    <nav>
-      <a href="#home" class="nav-item">🏠 Home</a>
-      <a href="#celebration" class="nav-item">🎂 Celebration</a>
-      <a href="#wishes" class="nav-item">🎁 Wishes</a>
-      <a href="#future" class="nav-item">🩺 Doctor Future</a>
-    </nav>
-
-    <!-- Header -->
-    <header id="home" style="padding-top: 120px">
-      <h1>🎂 Happy 21st Birthday 🎂</h1>
-      <h1>Dr. Amar Durgannav</h1>
-      <p>MBBS | 2nd Year | 28 December 2025</p>
-
-      <div class="profile">
-        <img src="amar.jpg" alt="Amar" />
+      <div id="footballGame">
+        <div class="goal"></div>
+        <div class="goalkeeper" id="keeper">🧤</div>
+        <div class="ball" id="ball">⚽</div>
       </div>
 
-      <!-- FOOTBALL GAME CARD -->
-      <div class="card">
-        <h2>⚽ Penalty Shootout Game</h2>
-        <p>Tap the ball to score goals!</p>
+      <p id="goalScore">Goals: 0</p>
+      <p id="goalReward" style="font-size:1.3rem;font-weight:bold;color:#1b5e20;"></p>
+    </div>
+  </header>
 
-        <div id="footballGame">
-          <div class="goal"></div>
-          <div class="goalkeeper" id="keeper">🧤</div>
-          <div class="ball" id="ball">⚽</div>
-        </div>
+  <section id="celebration">
+    <div class="card">
+      <h2>🎉 Birthday Celebration 🎉</h2>
+      <p>Celebrating a future life-saver 🩺 with joy and success.</p>
+    </div>
+  </section>
 
-        <p id="goalScore">Goals: 0</p>
-        <p
-          id="goalReward"
-          style="font-size: 1.3rem; font-weight: bold; color: #1b5e20"
-        ></p>
-      </div>
-    </header>
+  <section id="wishes">
+    <div class="card">
+      <h2>🎁 Birthday Wishes 🎁</h2>
+      <ul>
+        <li>✨ Heal millions of lives</li>
+        <li>✨ Success in exams & career</li>
+        <li>✨ A proud doctor ahead</li>
+      </ul>
+    </div>
+  </section>
 
-    <section id="celebration">
-      <div class="card">
-        <h2>🎉 Birthday Celebration 🎉</h2>
-        <p>Celebrating a future life-saver 🩺</p>
-      </div>
-    </section>
+  <section id="future">
+    <div class="card">
+      <h2>🩺 Doctor Achievements Ahead 🏆</h2>
+      <p>Your MBBS journey will become a medical legacy.</p>
+    </div>
+  </section>
 
-    <section id="wishes">
-      <div class="card">
-        <h2>🎁 Birthday Wishes 🎁</h2>
-        <ul>
-          <li>✨ May you heal millions of lives</li>
-          <li>✨ Success in exams and life</li>
-          <li>✨ Proud doctor ahead</li>
-        </ul>
-      </div>
-    </section>
+  <footer>Made with ❤️ for Amar | Happy Birthday Doctor 🎉</footer>
 
-    <section id="future">
-      <div class="card">
-        <h2>🩺 Doctor Achievements Ahead 🏆</h2>
-        <p>Your MBBS journey will become a proud medical legacy.</p>
-      </div>
-    </section>
+  <!-- SCRIPT -->
+  <script>
+    const ball = document.getElementById("ball");
+    const keeper = document.getElementById("keeper");
+    const scoreText = document.getElementById("goalScore");
+    const rewardText = document.getElementById("goalReward");
 
-    <footer>Made with ❤️ for Amar | Happy Birthday Doctor 🎉</footer>
+    let goals = 0;
 
-    <!-- GAME SCRIPT -->
-    <script>
-      const ball = document.getElementById("ball");
-      const keeper = document.getElementById("keeper");
-      const scoreText = document.getElementById("goalScore");
-      const rewardText = document.getElementById("goalReward");
+    function moveKeeper() {
+      keeper.style.left = Math.random() * 200 + "px";
+    }
 
-      let goals = 0;
+    function createConfetti() {
+      for (let i = 0; i < 30; i++) {
+        const c = document.createElement("div");
+        c.className = "confetti";
+        c.style.left = Math.random() * 100 + "vw";
+        c.style.backgroundColor = `hsl(${Math.random()*360},70%,60%)`;
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), 5000);
+      }
+    }
 
-      function moveKeeper() {
-        keeper.style.left = Math.random() * 200 + "px";
+    ball.addEventListener("click", () => {
+      const keeperPos = parseInt(keeper.style.left || 120);
+      const shotPos = Math.random() * 200 + 40;
+
+      if (Math.abs(shotPos - keeperPos) > 40) {
+        goals++;
+        scoreText.innerText = "Goals: " + goals;
+        createConfetti();
       }
 
-      ball.addEventListener("click", () => {
-        const keeperPos = parseInt(keeper.style.left || 120);
-        const ballPos = Math.random() * 200 + 40;
+      moveKeeper();
 
-        if (Math.abs(ballPos - keeperPos) > 40) {
-          goals++;
-          scoreText.innerText = "Goals: " + goals;
-        }
+      if (goals >= 5) {
+        rewardText.innerText =
+          "🎉 YOU WON! Enjoy your 21st Birthday Gift Amar 🎁🎂";
+      }
+    });
 
-        moveKeeper();
+    setInterval(moveKeeper, 1200);
+  </script>
 
-        if (goals >= 5) {
-          rewardText.innerText =
-            "🎉 GOAL MACHINE! Surprise Unlocked for Amar 🎉";
-        }
-      });
-
-      setInterval(moveKeeper, 1200);
-    </script>
-  </body>
+</body>
 </html>
