@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy 21st Birthday Amar 🎉</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #e3f2fd, #e8f5e9);
+        color: #1e3a5f;
+        text-align: center;
+        overflow-x: hidden;
+      }
+
+      header {
+        padding: 60px 20px;
+      }
+
+      header h1 {
+        font-size: 3rem;
+        color: #0d47a1;
+      }
+
+      header p {
+        font-size: 1.2rem;
+      }
+
+      nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 15px;
+        z-index: 1000;
+      }
+
+      .nav-item {
+        color: #fff;
+        margin: 0 15px;
+        text-decoration: none;
+        font-size: 1.1rem;
+      }
+
+      .nav-item:hover {
+        color: #ffd700;
+      }
+
+      .profile img {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 5px solid #fff;
+        object-fit: cover;
+        margin-top: 20px;
+      }
+
+      section {
+        padding: 50px 20px;
+      }
+
+      .card {
+        max-width: 900px;
+        margin: 20px auto;
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px;
+        border-radius: 18px;
+        box-shadow: 0 10px 25px rgba(30, 58, 95, 0.25);
+      }
+
+      /* FOOTBALL GAME */
+      #footballGame {
+        position: relative;
+        width: 300px;
+        height: 400px;
+        margin: 0 auto;
+        background: linear-gradient(#4caf50, #2e7d32);
+        border-radius: 15px;
+        overflow: hidden;
+        touch-action: none;
+      }
+
+      .goal {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 260px;
+        height: 120px;
+        border: 4px solid white;
+      }
+
+      .goalkeeper {
+        position: absolute;
+        top: 90px;
+        left: 120px;
+        font-size: 35px;
+      }
+
+      .ball {
+        position: absolute;
+        bottom: 20px;
+        left: 130px;
+        font-size: 35px;
+        cursor: pointer;
+      }
+
+      footer {
+        padding: 30px;
+        background: #0d47a1;
+        color: #fff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Music -->
+    <audio autoplay loop>
+      <source src="happy-birthday.mp3" type="audio/mpeg" />
+    </audio>
+
+    <!-- Nav -->
+    <nav>
+      <a href="#home" class="nav-item">🏠 Home</a>
+      <a href="#celebration" class="nav-item">🎂 Celebration</a>
+      <a href="#wishes" class="nav-item">🎁 Wishes</a>
+      <a href="#future" class="nav-item">🩺 Doctor Future</a>
+    </nav>
+
+    <!-- Header -->
+    <header id="home" style="padding-top: 120px">
+      <h1>🎂 Happy 21st Birthday 🎂</h1>
+      <h1>Dr. Amar Durgannav</h1>
+      <p>MBBS | 2nd Year | 28 December 2025</p>
+
+      <div class="profile">
+        <img src="amar.jpg" alt="Amar" />
+      </div>
+
+      <!-- FOOTBALL GAME CARD -->
+      <div class="card">
+        <h2>⚽ Penalty Shootout Game</h2>
+        <p>Tap the ball to score goals!</p>
+
+        <div id="footballGame">
+          <div class="goal"></div>
+          <div class="goalkeeper" id="keeper">🧤</div>
+          <div class="ball" id="ball">⚽</div>
+        </div>
+
+        <p id="goalScore">Goals: 0</p>
+        <p
+          id="goalReward"
+          style="font-size: 1.3rem; font-weight: bold; color: #1b5e20"
+        ></p>
+      </div>
+    </header>
+
+    <section id="celebration">
+      <div class="card">
+        <h2>🎉 Birthday Celebration 🎉</h2>
+        <p>Celebrating a future life-saver 🩺</p>
+      </div>
+    </section>
+
+    <section id="wishes">
+      <div class="card">
+        <h2>🎁 Birthday Wishes 🎁</h2>
+        <ul>
+          <li>✨ May you heal millions of lives</li>
+          <li>✨ Success in exams and life</li>
+          <li>✨ Proud doctor ahead</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="future">
+      <div class="card">
+        <h2>🩺 Doctor Achievements Ahead 🏆</h2>
+        <p>Your MBBS journey will become a proud medical legacy.</p>
+      </div>
+    </section>
+
+    <footer>Made with ❤️ for Amar | Happy Birthday Doctor 🎉</footer>
+
+    <!-- GAME SCRIPT -->
+    <script>
+      const ball = document.getElementById("ball");
+      const keeper = document.getElementById("keeper");
+      const scoreText = document.getElementById("goalScore");
+      const rewardText = document.getElementById("goalReward");
+
+      let goals = 0;
+
+      function moveKeeper() {
+        keeper.style.left = Math.random() * 200 + "px";
+      }
+
+      ball.addEventListener("click", () => {
+        const keeperPos = parseInt(keeper.style.left || 120);
+        const ballPos = Math.random() * 200 + 40;
+
+        if (Math.abs(ballPos - keeperPos) > 40) {
+          goals++;
+          scoreText.innerText = "Goals: " + goals;
+        }
+
+        moveKeeper();
+
+        if (goals >= 5) {
+          rewardText.innerText =
+            "🎉 GOAL MACHINE! Surprise Unlocked for Amar 🎉";
+        }
+      });
+
+      setInterval(moveKeeper, 1200);
+    </script>
+  </body>
+</html>
